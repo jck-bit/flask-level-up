@@ -1,9 +1,9 @@
-{%extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block head%}
-    {{ super() }} {home page}
-{%endblok%}
+{% block title %} home {% endblock %}
 
-{%block body%} 
-{  {{ super() }} {<h1>home page</h1>}
+{%block head%}
+{{ super() }}
+<h1>this is the home page</h1>  
+
 {%endblock%}
