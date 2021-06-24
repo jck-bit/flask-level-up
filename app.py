@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
-#whenever a function is called in front of a route,..whatever is returned is just spit to the browser
+#whenever a function is called  after a route,..whatever is returned is just spit to the browser
 
 @app.route('/')
 def index():
