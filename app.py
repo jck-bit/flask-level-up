@@ -1,6 +1,21 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
+
+all_posts = [
+    {
+        'title': 'post 1',
+        'content' : 'this is the content of post 1'
+    },
+    {
+        'title': 'post 2',
+        'content' : 'this is the content of post 2'
+    }
+]
+
+
+
+
 #whenever a function is called  after a route,..whatever is returned is just spit to the browser
 
 @app.route('/')
@@ -14,7 +29,7 @@ def hello(name):
 
 @app.route('/posts')
 def posts():
-    return render_template('posts.html')
+    return render_template('posts.html', posts = all_posts)
 
 
 #i only allow a get request to the webpage below
