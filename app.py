@@ -1,6 +1,20 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
+db = SQLAlchemy(app)
+
+class blogpost(db.Model):
+    id = db.column(db.integer, primary_key=True)
+    title = db.column(db.String(100), nullable=False)
+    content = db.column(db.Text, nullable=False)
+    author = db.column(db.String(20), nullable=False, default = 'N/A')
+    date_posted = db.column(db.DateTime, nullable=False, default =datetime.utcnow)
+
+    def __repr__(self):
+        return 'blog post' + str(self.id)
 
 all_posts = [
     {
